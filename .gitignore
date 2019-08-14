@@ -1,5 +1,3 @@
-*
-!*.py
-!.gitignore
-plugwisesmileapi.py
-__init__.py
+.devcontainer/
+.vscode/
+.DS_Store

@@ -1,5 +1,7 @@
 **Sensor for Plugwise Smile P1 integration**
 
+Initial source code from https://bitbucket.org/jvdschoot/home-assistant-sensor-plugwise-smile-p1/src/master/
+
 Usage:
        
       - platform: plugwisesmile
