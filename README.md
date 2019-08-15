@@ -4,7 +4,7 @@ Initial source code from https://bitbucket.org/jvdschoot/home-assistant-sensor-p
 
 Usage:
 
-You most probably need to install the additional package `lxml` via the command `pip install lxml`.
+You most probably need to install the additional package `lxml` via the command `pip3 install lxml`.
        
       sensor:
       - platform: plugwisesmile
