@@ -3,7 +3,10 @@
 Initial source code from https://bitbucket.org/jvdschoot/home-assistant-sensor-plugwise-smile-p1/src/master/
 
 Usage:
+
+You most probably need to install the additional package `lxml` via the command `pip install lxml`.
        
+      sensor:
       - platform: plugwisesmile
         name: Plugwise Smile
         host: x.x.x.x
