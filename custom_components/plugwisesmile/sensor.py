@@ -20,7 +20,7 @@ sensor:
       - electricity_produced_offpeak_cumulative
       - electricity_produced_peak_cumulative
       - gas_consumed_interval
-      - gas_consumed_cumulative  
+      - gas_consumed_cumulative
 """
 
 import logging
@@ -72,7 +72,7 @@ class PlugWiseP1Api():
         self.host = host
         self.user = user
         self.password = password
-    
+
     def get_base_url(self):
         return 'http://{user}:{password}@{host}/'.format(user=self.user, password=self.password, host=self.host)
 
@@ -100,7 +100,7 @@ class PlugWiseP1Api():
     def get_electricity_consumed_point(self, electricity_module):
         value = electricity_module.xpath('//module/services/electricity_point_meter/measurement[@directionality="consumed"]/text()')[0]
         return float(value)
-    
+
     def get_electricity_consumed_offpeak_interval(self, electricity_module):
         value = electricity_module.xpath('//module/services/electricity_interval_meter/measurement[@directionality="consumed" and @tariff_indicator="nl_offpeak"]/text()')[0]
         return float(value)
@@ -108,7 +108,7 @@ class PlugWiseP1Api():
     def get_electricity_consumed_peak_interval(self, electricity_module):
         value = electricity_module.xpath('//module/services/electricity_interval_meter/measurement[@directionality="consumed" and @tariff_indicator="nl_peak"]/text()')[0]
         return float(value)
-    
+
     def get_electricity_consumed_offpeak_cumulative(self, electricity_module):
         value = electricity_module.xpath('//module/services/electricity_cumulative_meter/measurement[@directionality="consumed" and @tariff_indicator="nl_offpeak"]/text()')[0]
         return float(value)
@@ -223,7 +223,7 @@ class PlugwiseSmileData(object):
         return self._api.get_gas_consumed_interval(self._gas_module)
 
     def get_gas_consumed_cumulative(self):
-        return self._api.get_gas_consumed_cumulative(self._gas_module)    
+        return self._api.get_gas_consumed_cumulative(self._gas_module)
 
 class PlugwiseSmileSensor(Entity):
     """Representation of a Plugwise Smile sensor."""
@@ -269,7 +269,7 @@ class PlugwiseSmileSensor(Entity):
     def update(self):
         """Get the latest data and use it to update our sensor state."""
         self.data.update()
-      
+
         if self.type == 'electricity_consumed_point':
             self._state = self.data.get_electricity_consumed_point()
         elif self.type == 'electricity_consumed_offpeak_interval':
